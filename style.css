@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  font-family: "Barlow Semi Condensed", sans-serif;
+  overflow: hidden;
+}
+
+header {
+  width: 700px;
+  margin: 40px auto 60px;
+}
+
+.header-container {
+  border: 2px solid hsl(217, 16%, 45%);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 25px;
+}
+
+main {
+  width: 580px;
+  margin: auto;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "paper scissors"
+    "rock rock";
+  justify-items: center;
+  row-gap: 25px;
+  position: relative;
+}
+
+.game-container::before {
+  content: "";
+  background: url(/images/bg-triangle.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 100%;
+  z-index: -2;
+  top: 50%;
+  left: 50%;
+  margin-left: -152px;
+  margin-top: -125px;
+}
+
+.rock-container {
+  grid-area: rock;
+}
+
+.paper-container {
+  grid-area: paper;
+}
+
+.scissors-container {
+  grid-area: scissors;
+}
+
+.game-title {
+  font-size: 40px;
+  line-height: 80%;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -3px;
+}
+
+.game-score {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 150px;
+  height: 115px;
+  background: white;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.game-score p {
+  letter-spacing: 3px;
+  color: hsl(229, 64%, 46%);
+}
+
+.score {
+  font-size: 66px;
+  font-weight: 700;
+  line-height: 100%;
+  color: hsl(229, 25%, 31%);
+}
+
+.cont {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  box-shadow: 0 -8px inset rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.img {
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.img img {
+  height: 80px;
+}
+
+.img::before {
+  content: "";
+  display: block;
+  height: 200px;
+  width: 200px;
+  background: linear-gradient(-90deg, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+  position: absolute;
+  z-index: -1;
+}
+
+.img::after {
+  content: "";
+  box-shadow: 0 8px inset hsl(217, 16%, 45%, 0.25);
+  height: 150px;
+  width: 150px;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+}
+
+.scissors::before {
+  background: linear-gradient(-90deg, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+}
+
+.rock::before {
+  background: linear-gradient(-90deg, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
