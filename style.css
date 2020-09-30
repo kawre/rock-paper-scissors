@@ -25,7 +25,9 @@ header {
   padding: 15px 25px;
 }
 
-main {
+/* pick */
+
+.pick {
   width: 580px;
   margin: auto;
 }
@@ -113,6 +115,8 @@ main {
   border-radius: 50%;
   box-shadow: 0 -8px inset rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  background: none;
+  border: none;
 }
 
 .img {
@@ -156,4 +160,76 @@ main {
 
 .rock::before {
   background: linear-gradient(-90deg, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+}
+
+/* results */
+
+.result {
+  width: 700px;
+  margin: auto;
+  grid-template-columns: 300px 300px;
+  justify-content: space-between;
+  text-align: center;
+  color: white;
+  letter-spacing: 4px;
+  font-size: 14px;
+}
+
+.result h2 {
+  padding-bottom: 50px;
+}
+
+.result .cont {
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 -12px inset rgba(0, 0, 0, 0.3);
+}
+
+.result .img {
+  height: 230px;
+  width: 230px;
+}
+
+.result .img::after {
+  width: 230px;
+  height: 230px;
+  box-shadow: 0 12px inset hsl(217, 16%, 45%, 0.25);
+}
+
+.result .img::before {
+  width: 300px;
+  height: 300px;
+}
+
+.result .img img {
+  height: 110px;
+}
+
+.none .img::before {
+  display: none;
+}
+
+.none .img::after {
+  display: none;
+}
+
+.none img {
+  display: none;
+}
+
+.none .house {
+  background: black;
+  opacity: 0.15;
+}
+
+.none {
+  box-shadow: none !important;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: grid;
 }

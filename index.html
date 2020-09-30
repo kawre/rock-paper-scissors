@@ -34,23 +34,43 @@
       </div>
     </header>
     <main>
-      <div class="game-container">
-        <div class="paper-container cont">
-          <div class="paper img">
-            <img src="/images/icon-paper.svg" alt="" />
-          </div>
+      <section class="pick">
+        <div class="game-container">
+          <button class="paper-container cont" data-id="paper">
+            <div class="paper img">
+              <img src="/images/icon-paper.svg" alt="" />
+            </div>
+          </button>
+          <button class="scissors-container cont" data-id="scissors">
+            <div class="scissors img">
+              <img src="/images/icon-scissors.svg" alt="" />
+            </div>
+          </button>
+          <button class="rock-container cont" data-id="rock">
+            <div class="rock img">
+              <img src="/images/icon-rock.svg" alt="" />
+            </div>
+          </button>
         </div>
-        <div class="scissors-container cont">
-          <div class="scissors img">
-            <img src="/images/icon-scissors.svg" alt="" />
-          </div>
+      </section>
+      <section class="result hide">
+        <div class="you">
+          <h2>YOU PICKED</h2>
+          <button class="scissors-container cont">
+            <div class="scissors img">
+              <img src="/images/icon-scissors.svg" alt="" />
+            </div>
+          </button>
         </div>
-        <div class="rock-container cont">
-          <div class="rock img">
-            <img src="/images/icon-rock.svg" alt="" />
-          </div>
+        <div class="house">
+          <h2>THE HOUSE PICKED</h2>
+          <button class="scissors-container cont none">
+            <div class="house img">
+              <img src="/images/icon-scissors.svg" alt="" />
+            </div>
+          </button>
         </div>
-      </div>
+      </section>
     </main>
   </body>
 </html>
