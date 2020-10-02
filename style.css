@@ -200,6 +200,91 @@ header {
   box-shadow: 0 -12px inset rgba(0, 0, 0, 0.3);
 }
 
+/* rules button */
+
+.rules-button {
+  position: absolute;
+  right: 25px;
+  bottom: 25px;
+}
+
+.rules-btn {
+  cursor: pointer;
+  background: none;
+  border: 1px solid white;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  height: 40px;
+  width: 125px;
+  border-radius: 8px;
+}
+
+.rules-info {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  z-index: 999;
+  transition: 0.1s ease-in;
+}
+
+.rules-container {
+  position: absolute;
+  left: 50%;
+  margin-left: -200px;
+  top: 50%;
+  margin-top: -207.5px;
+  width: 400px;
+  height: 415px;
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.rules-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rules-header h1 {
+  font-size: 30px;
+  color: hsl(229, 25%, 31%);
+}
+
+.close-rules {
+  background: none;
+  border: none;
+  cursor: pointer;
+  height: 36px;
+  padding: 8px;
+  opacity: 0.25;
+  transition: 0.1s ease-out;
+}
+
+.close-rules:hover {
+  opacity: 1;
+  transition: 0.1s ease-in;
+}
+
+.rules-main {
+  margin: 0 auto;
+}
+
+.hide-rules {
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.1s ease-out;
+}
+
+/* other */
+
 .play-again {
   display: none;
 }
@@ -299,7 +384,7 @@ header {
 }
 
 .animation {
-  animation: MoveUpDown 0.4s linear 3;
+  animation: MoveUpDown 0.35s linear 2;
 }
 
 .house,
@@ -312,10 +397,10 @@ header {
     transform: translate(0, 0px);
   }
   50% {
-    transform: translate(0, 15px);
+    transform: translate(0, 40px);
   }
   100% {
-    transform: translate(0, -0px);
+    transform: translate(0, 0px);
   }
 }
 

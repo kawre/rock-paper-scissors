@@ -41,7 +41,7 @@ btn.forEach(function (e) {
       resultCont.classList.add("final");
       scoreText.innerHTML = score;
       gameResult();
-    }, 1200);
+    }, 700);
 
     // results
     function results() {
@@ -101,5 +101,18 @@ btn.forEach(function (e) {
         houseCont.appendChild(animationDiv);
       }
     }
+  });
+});
+
+// show rules
+
+const rulesBtn = document.querySelector(".rules-btn");
+const closeBtn = document.querySelector(".close-rules");
+const rulesInfo = document.querySelector(".rules-info");
+
+rulesBtn.addEventListener("click", function () {
+  rulesInfo.classList.remove("hide-rules");
+  closeBtn.addEventListener("click", function () {
+    rulesInfo.classList.add("hide-rules");
   });
 });
