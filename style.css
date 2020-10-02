@@ -83,14 +83,10 @@ header {
 }
 
 .game-title {
-  font-size: 40px;
-  line-height: 80%;
-  font-weight: 700;
-  color: white;
   display: flex;
   align-items: center;
   position: relative;
-  top: -3px;
+  top: 3px;
 }
 
 .game-score {
@@ -380,7 +376,9 @@ header {
 }
 
 .display-none {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.00000000001s ease-out;
 }
 
 .animation {
@@ -471,5 +469,234 @@ header {
 
   to {
     transform: scale(2.5);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  header {
+    width: 310px;
+  }
+
+  .header-container {
+    border-width: 2.5px;
+    border-radius: 8px;
+    height: 95px;
+    padding: 10px 10px 10px 21px;
+  }
+
+  .game-score {
+    height: 100%;
+    width: 80px;
+    border-radius: 6px;
+  }
+
+  .game-score p {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .score {
+    font-size: 38px;
+  }
+
+  .game-title {
+    top: 2px;
+  }
+
+  .game-title img {
+    height: 55px;
+  }
+
+  .game-container {
+    width: 310px;
+    row-gap: 15px;
+  }
+
+  .game-container::before {
+    background-size: 60%;
+    margin-left: -95px;
+    margin-top: -75px;
+  }
+
+  .cont {
+    width: 130px;
+    height: 130px;
+    box-shadow: 0 -6px inset rgba(0, 0, 0, 0.3);
+  }
+
+  .img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .img::before {
+    width: 130px;
+    height: 130px;
+  }
+
+  .img::after {
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 6px inset hsl(217, 16%, 45%, 0.3);
+  }
+
+  .img img {
+    height: 50px;
+  }
+
+  .paper-container {
+    justify-self: flex-start;
+  }
+
+  .scissors-container {
+    justify-self: flex-end;
+  }
+
+  .rock-container {
+    justify-self: center;
+  }
+
+  .rules-container {
+    width: 100vw;
+    height: 100vh;
+    top: unset;
+    left: unset;
+    margin: unset;
+    border-radius: unset;
+    padding: 60px 30px 60px;
+  }
+
+  .rules-button {
+    bottom: 40px;
+    left: 50%;
+    margin-left: -62.5px;
+  }
+
+  .rules-header {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .house,
+  .you {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  .rules-main {
+    position: absolute;
+    top: 50%;
+    margin-top: -135px;
+    width: calc(100% - 60px);
+  }
+
+  .rules-main img {
+    width: 310px;
+    position: relative;
+    left: 50%;
+    margin-left: -155px;
+  }
+
+  .close-rules {
+    height: 52px;
+    width: 52px;
+    padding: 16px;
+    margin-bottom: -12px;
+  }
+
+  .result .cont {
+    width: 130px;
+    height: 130px;
+    box-shadow: 0 -6px inset rgba(0, 0, 0, 0.3);
+  }
+
+  .result {
+    grid-template-columns: 130px 130px;
+    grid-template-areas: "you house";
+    gap: unset;
+    column-gap: 50px;
+    row-gap: 60px;
+  }
+
+  .result h2 {
+    padding-top: 30px;
+    padding-bottom: unset;
+    font-size: 15px;
+    letter-spacing: 2.5px;
+  }
+
+  .win-animation {
+    top: 0;
+    bottom: unset;
+  }
+
+  .result .img::before {
+    width: 130px;
+    height: 130px;
+  }
+
+  .result .img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .result .img::after {
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 6px inset hsl(217, 16%, 45%, 0.3);
+  }
+
+  .result .img img {
+    height: 50px;
+  }
+
+  .final {
+    grid-template-columns: 130px 130px;
+    grid-template-areas:
+      "you house"
+      "again again";
+    column-gap: 50px;
+    row-gap: 60px;
+  }
+
+  .you {
+    grid-area: you;
+  }
+
+  .play-again {
+    grid-area: again;
+  }
+
+  .house {
+    grid-area: house;
+  }
+
+  .win-animation {
+    width: 130px;
+    height: 130px;
+  }
+
+  .circle-15,
+  .circle-2,
+  .circle-25 {
+    width: 130px;
+    height: 130px;
+  }
+
+  @keyframes MoveUpDown {
+    0% {
+      transform: translate(0, 0px);
+    }
+    50% {
+      transform: translate(0, 20px);
+    }
+    100% {
+      transform: translate(0, 0px);
+    }
   }
 }
