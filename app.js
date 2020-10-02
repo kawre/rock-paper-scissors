@@ -1,47 +1,89 @@
 const btn = document.querySelectorAll(".pick button");
 const resultCont = document.querySelector(".result");
 const pickCont = document.querySelector(".pick");
+const houseCont = document.querySelector(".house");
+
+const scoreText = document.querySelector(".score");
+let score = 0;
 
 btn.forEach(function (e) {
   e.addEventListener("click", () => {
-    const id = e.dataset.id;
+    const userPicked = e.dataset.id;
     const yourPick = document.querySelector(".you");
     pickCont.classList.add("hide");
     resultCont.classList.add("show");
     resultCont.classList.remove("hide");
+    resultCont.classList.remove("display-none");
 
     yourPick.innerHTML = `<h2>YOU PICKED</h2>
-    <button class="${id}-container cont animation">
-    <div class="${id} img">
-      <img src="/images/icon-${id}.svg" alt="" />
+    <button class="${userPicked}-container cont animation">
+    <div class="${userPicked} img">
+      <img src="/images/icon-${userPicked}.svg" alt="" />
     </div>
     </button>`;
 
-    const housePicks = ["rock", "paper", "scissors"];
+    const compPicks = ["rock", "paper", "scissors"];
 
-    let i = Math.floor(Math.random() * housePicks.length);
-    const housePicked = housePicks[i];
+    let i = Math.floor(Math.random() * compPicks.length);
+    const compPicked = compPicks[i];
 
     const housePick = document.querySelector(".house button");
     housePick.classList.add("animation");
 
     setTimeout(function housePick() {
-      const houseCont = document.querySelector(".house");
-
       houseCont.innerHTML = `<h2>THE HOUSE PICKED</h2>
-      <button class="${housePicked}-container cont">
-        <div class="${housePicked} img">
-          <img src="/images/icon-${housePicked}.svg" alt="" />
+      <button class="${compPicked}-container cont">
+        <div class="${compPicked} img">
+          <img src="/images/icon-${compPicked}.svg" alt="" />
         </div>
       </button>`;
       resultCont.classList.add("final");
+      scoreText.innerHTML = score;
     }, 1200);
+
+    // results
     function results() {
       const resultsText = document.querySelector(".results");
-      if (id == housePicked) {
+      if (userPicked === compPicked) {
         resultsText.innerHTML = "DRAW";
+      } else if (compPicked === "rock" && userPicked === "paper") {
+        resultsText.innerHTML = "WIN";
+        score++;
+      } else if (compPicked === "rock" && userPicked === "scissors") {
+        resultsText.innerHTML = "LOSE";
+        score--;
+      } else if (compPicked === "paper" && userPicked === "rock") {
+        resultsText.innerHTML = "LOSE";
+        score--;
+      } else if (compPicked === "paper" && userPicked === "scissors") {
+        resultsText.innerHTML = "WIN";
+        score++;
+      } else if (compPicked === "scissors" && userPicked === "rock") {
+        resultsText.innerHTML = "WIN";
+        score++;
+      } else if (compPicked === "scissors" && userPicked === "paper") {
+        resultsText.innerHTML = "LOSE";
+        score--;
       }
     }
     results();
+    // go back
+    const playAgain = document.querySelector(".again");
+    const img = document.querySelector(".img-house");
+
+    playAgain.addEventListener("click", function () {
+      // show pick container
+      pickCont.classList.remove("hide");
+      // remove classes for results cont
+      resultCont.classList.remove("show");
+      resultCont.classList.remove("final");
+      resultCont.classList.add("display-none");
+      houseCont.innerHTML = `<h2>THE HOUSE PICKED</h2>
+      <button class="scissors-container cont none">
+        <div class="house img img-house">
+          <img src="/images/icon-scissors.svg" alt="" />
+        </div>
+      </button>`;
+    });
   });
 });

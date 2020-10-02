@@ -289,6 +289,10 @@ header {
   position: static;
 }
 
+.display-none {
+  display: none;
+}
+
 .animation {
   animation: MoveUpDown 0.4s linear 3;
 }
