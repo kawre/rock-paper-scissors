@@ -2,6 +2,8 @@ const btn = document.querySelectorAll(".pick button");
 const resultCont = document.querySelector(".result");
 const pickCont = document.querySelector(".pick");
 const houseCont = document.querySelector(".house");
+const yourPick = document.querySelector(".you");
+const resultsText = document.querySelector(".results");
 
 const scoreText = document.querySelector(".score");
 let score = 0;
@@ -9,7 +11,6 @@ let score = 0;
 btn.forEach(function (e) {
   e.addEventListener("click", () => {
     const userPicked = e.dataset.id;
-    const yourPick = document.querySelector(".you");
     pickCont.classList.add("hide");
     resultCont.classList.add("show");
     resultCont.classList.remove("hide");
@@ -30,20 +31,20 @@ btn.forEach(function (e) {
     const housePick = document.querySelector(".house button");
     housePick.classList.add("animation");
 
-    setTimeout(function housePick() {
+    setTimeout(function compPick() {
       houseCont.innerHTML = `<h2>THE HOUSE PICKED</h2>
       <button class="${compPicked}-container cont">
         <div class="${compPicked} img">
           <img src="/images/icon-${compPicked}.svg" alt="" />
         </div>
-      </button>`;
+        </button>`;
       resultCont.classList.add("final");
       scoreText.innerHTML = score;
+      gameResult();
     }, 1200);
 
     // results
     function results() {
-      const resultsText = document.querySelector(".results");
       if (userPicked === compPicked) {
         resultsText.innerHTML = "DRAW";
       } else if (compPicked === "rock" && userPicked === "paper") {
@@ -85,5 +86,20 @@ btn.forEach(function (e) {
         </div>
       </button>`;
     });
+    // win/lose animations
+
+    function gameResult() {
+      animationDiv = document.createElement("div");
+      animationDiv.classList.add("win-animation");
+      animationDiv.innerHTML = `<div class="circle-15"></div>
+      <div class="circle-2"></div>
+      <div class="circle-25"></div>`;
+
+      if (resultsText.innerHTML === "WIN") {
+        yourPick.appendChild(animationDiv);
+      } else if (resultsText.innerHTML === "LOSE") {
+        houseCont.appendChild(animationDiv);
+      }
+    }
   });
 });

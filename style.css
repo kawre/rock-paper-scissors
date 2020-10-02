@@ -7,7 +7,12 @@
 body {
   height: 100vh;
   width: 100vw;
-  background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  background: radial-gradient(
+    circle at top,
+    hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
@@ -297,6 +302,11 @@ header {
   animation: MoveUpDown 0.4s linear 3;
 }
 
+.house,
+.you {
+  position: relative;
+}
+
 @keyframes MoveUpDown {
   0% {
     transform: translate(0, 0px);
@@ -306,5 +316,75 @@ header {
   }
   100% {
     transform: translate(0, -0px);
+  }
+}
+
+.win-animation {
+  position: absolute;
+  bottom: 0;
+  height: 300px;
+  width: 300px;
+}
+
+/* win cicrlces */
+
+.circle-15 {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  opacity: 0.025;
+  z-index: -2;
+  background: white;
+  border-radius: 50%;
+  animation: grow15 0.4s 1 forwards;
+}
+
+.circle-2 {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  opacity: 0.025;
+  z-index: -3;
+  background: white;
+  border-radius: 50%;
+  animation: grow2 0.4s 1 forwards;
+}
+
+.circle-25 {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  opacity: 0.025;
+  z-index: -4;
+  background: white;
+  border-radius: 50%;
+  animation: grow25 0.4s 1 forwards;
+}
+
+@keyframes grow15 {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
+
+@keyframes grow2 {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(2);
+  }
+}
+
+@keyframes grow25 {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(2.5);
   }
 }
