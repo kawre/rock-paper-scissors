@@ -376,9 +376,7 @@ header {
 }
 
 .display-none {
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.00000000001s ease-out;
+  display: none;
 }
 
 .animation {
